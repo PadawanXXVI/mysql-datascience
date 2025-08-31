@@ -1,0 +1,8 @@
+pandas
+SQLAlchemy>=2
+PyMySQL
+python-dotenv
+jupyter
+ipykernel
+plotly            # (opcional p/ gráficos)
+flask             # (opcional p/ painel web)
