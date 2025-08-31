@@ -1,5 +1,11 @@
 # Projeto de Banco de Dados Relacional + Ciência de Dados (Olist)
 
+![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-8.0+-4479A1?logo=mysql&logoColor=white)
+![VSCode](https://img.shields.io/badge/VSCode-ready-007ACC?logo=visualstudiocode&logoColor=white)
+![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
+
 Este projeto utiliza o **Olist Dataset** (Kaggle), que contém informações de pedidos, clientes, produtos, vendedores, pagamentos e avaliações do e-commerce brasileiro.  
 O objetivo é **modelar, popular e analisar** os dados em **MySQL**, estruturando um **MER** (Modelo Entidade-Relacionamento) e um **MMD** (Modelo Multidimensional em estrela), além de gerar análises e visualizações em **SQL e BI**.
 
