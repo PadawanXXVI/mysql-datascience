@@ -5,7 +5,7 @@ Aqui estão as regras práticas para colaborar com segurança e velocidade.
 
 ---
 
-## ��� Como rodar localmente (setup rápido)
+## 🔧 Como rodar localmente (setup rápido)
 
 1. **Clone/Atualize**
    ```bash
@@ -38,7 +38,7 @@ Aqui estão as regras práticas para colaborar com segurança e velocidade.
 
 ---
 
-## ��� Branches
+## 🌿 Branches
 
 - **main**: estável.  
 - **feature/**_tarefa_ → novas funcionalidades  
@@ -70,37 +70,37 @@ Exemplos:
 
 ---
 
-## ��� Pull Requests
+## 🔁 Pull Requests
 
 1. Abra PR da sua branch para `main`.  
 2. Descreva objetivo, evidências (prints/logs) e impactos.  
 3. **Revisor padrão:** **Prof. Ygor Rio Pardo Felix (@YgorFelix)**.  
-4. Exija pelo menos **1 aprovação** antes de merge.  
+4. Exija pelo menos **1 aprovação** antes de *merge*.  
 5. Proíba *merge* direto na `main` sem PR.
 
-Checklist de PR:
-- [ ] Passos para reproduzir testados
-- [ ] Tabelas/índices com FKs/UNIQUE quando aplicável
-- [ ] ETL idempotente (pode rodar mais de uma vez)
+**Checklist de PR**
+- [ ] Passos para reproduzir testados  
+- [ ] Tabelas/índices com FKs/UNIQUE quando aplicável  
+- [ ] ETL idempotente (pode rodar mais de uma vez)  
 - [ ] Views não usam `SELECT *`
 
 ---
 
-## ���️ Padrões de Banco/SQL
+## 🗃️ Padrões de Banco/SQL
 
 - **Nomes:** `snake_case`, singular para dimensões (`product`, `customer`); tabelas fato no plural quando fizer sentido.  
 - **Chaves:** PK em todas as tabelas; FKs explícitas; `UNIQUE` para chaves naturais (`sku`, `email`).  
 - **Índices:** crie para colunas usadas em *joins* e filtros frequentes.  
 - **Tipos:** valores monetários em `DECIMAL(12,2)`; datas em `DATE/DATETIME`.  
 - **Views:** prefixo `vw_` e **nunca** `SELECT *`.  
-- **Scripts:**  
+- **Scripts padrão:**  
   - `sql/01_schema_oltp.sql`  
   - `sql/02_constraints_indexes.sql`  
   - `sql/03_schema_dw.sql`
 
 ---
 
-## ��� Padrões de Python
+## 🐍 Padrões de Python
 
 - Organização em `etl/` com scripts idempotentes.  
 - Use `python-dotenv` para ler `.env`.  
@@ -109,43 +109,45 @@ Checklist de PR:
 
 ---
 
-## ��� Qualidade
+## 🧪 Qualidade
 
 Antes de abrir PR:
-- Rode as **Tasks** do VS Code (DDL/ETL) e valide contagens básicas.  
-- Verifique órfãos e duplicatas:
-  ```sql
-  SELECT COUNT(*) FROM order_items;
-  -- órfãos de exemplo
-  SELECT * FROM order_items oi
-  LEFT JOIN orders o ON o.order_id=oi.order_id
-  WHERE o.order_id IS NULL;
-  ```
+```sql
+-- contagens básicas
+SELECT COUNT(*) FROM orders;
+SELECT COUNT(*) FROM order_items;
+
+-- exemplo de checagem de órfãos
+SELECT *
+FROM order_items oi
+LEFT JOIN orders o ON o.order_id = oi.order_id
+WHERE o.order_id IS NULL;
+```
 
 ---
 
-## ���️ Issues, Labels e Milestones
+## 🏷️ Issues, Labels e Milestones
 
 - **Milestones** sugeridas: `M1-Setup`, `M2-OLTP`, `M3-ETL`, `M4-DW`, `M5-BI`.  
-- Labels: `feat`, `bug`, `etl`, `sql`, `schema`, `docs`, `help wanted`, `good first issue`.  
-- Cada issue deve ter: escopo claro, *acceptance criteria* e, se possível, link para PR.
+- **Labels**: `feat`, `bug`, `etl`, `sql`, `schema`, `docs`, `help wanted`, `good first issue`.  
+- Cada issue deve ter escopo claro, *acceptance criteria* e, se possível, link para PR.
 
 ---
 
-## ��� Código de Conduta
+## 🤝 Código de Conduta
 
 Seja respeitoso e colaborativo. Feedbacks técnicos são bem-vindos.  
 Violação de conduta pode levar à restrição de participação.
 
 ---
 
-## ��� Contatos
+## 👥 Contatos
 
 - **Autor / Orientado:** Anderson de Matos Guimarães — anderson.m.guimaraes@icloud.com  
 - **Coordenação:** Prof. **Ygor Rio Pardo Felix** — GitHub [@YgorFelix](https://github.com/YgorFelix) — ygor.pardo@gmail.com
 
 ---
 
-## ��� Licença
+## 📜 Licença
 
 MIT. Consulte `LICENSE`.
